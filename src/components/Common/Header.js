@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Header extends React.Component {
     render() {
@@ -7,7 +8,9 @@ export default class Header extends React.Component {
                 <nav>
                     This is the nav bar
                 </nav>
-                <h1>Header</h1>
+                <Link to='/home'>
+                    <h1>Header</h1>
+                </Link>
             </header>
         )
     }

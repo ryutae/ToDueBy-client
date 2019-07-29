@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Footer from './components/Common/Footer'
 import Header from './components/Common/Header'
-import HomePage from './components/pages/LandingPage'
-import LoginPage from './components/pages/LoginPage'
-import RegisterPage from './components/pages/RegisterPage'
-import TeamPage from './components/pages/TeamPage'
-import ProjectPage from './components/pages/ProjectPage'
-import LandingPage from './components/pages/LandingPage'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+import TeamPage from './pages/TeamPage'
+import ProjectPage from './pages/ProjectPage'
+import LandingPage from './pages/LandingPage'
 import  './App.css';
 
-export default class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <div className="App">
@@ -18,11 +18,11 @@ export default class App extends React.Component {
         <main>
           <Switch>
             <Route 
-              exact path='/' 
+              exact path='/home' 
               component={HomePage}>
             </Route>
             <Route 
-              exact path='/welcome' 
+              exact path='/' 
               component={LandingPage}>
             </Route>
             <Route 
@@ -49,3 +49,4 @@ export default class App extends React.Component {
   }
 }
 
+export default App
