@@ -1,0 +1,16 @@
+header {
+    background-color: grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar {
+    display: flex;
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+    
+  }

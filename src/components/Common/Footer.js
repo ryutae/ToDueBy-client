@@ -1,10 +1,11 @@
 import React from 'react'
+import './Footer.css'
 
 export default class Footer extends React.Component {
     render() {
         return (
             <footer>
-                <h1>footer</h1>
+                <p className='title'>footer</p>
             </footer>
         )
     }

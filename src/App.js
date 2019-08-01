@@ -2,22 +2,23 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Footer from './components/Common/Footer'
 import Header from './components/Common/Header'
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
-import TeamPage from './pages/TeamPage'
-import ProjectPage from './pages/ProjectPage'
-import LandingPage from './pages/LandingPage'
+
 import  './App.css';
+import PrivateRoutes from './Routes/PrivateRoutes';
+import PublicRoutes from './Routes/PublicRoutes';
 
 class App extends Component {
+  hideSideMenu() {
+    return ['/login', '/register', '/'].includes(window.location.pathname)
+  }
   render() {
     return (
       <div className="App">
-        <Header/>
-        <main>
+        <Header />  
           <Switch>
-            <Route 
+            <Route path='/dashboard' component={PrivateRoutes}/>
+            <Route component={PublicRoutes}/>
+            {/* <Route 
               exact path='/home' 
               component={HomePage}>
             </Route>
@@ -34,15 +35,14 @@ class App extends Component {
               component={RegisterPage}>
             </Route>
             <Route 
-              exact path='/team/:teamId' 
+              path='/team/:teamId' 
               component={TeamPage}>
             </Route>
             <Route 
               path='/team/:teamId/project/projectId' 
               component={ProjectPage}>
-            </Route>
+            </Route> */}
           </Switch>
-        </main>
         <Footer/> 
       </div>
     );
