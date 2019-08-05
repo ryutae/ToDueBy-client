@@ -1,5 +1,7 @@
 import React from 'react'
 import './RegisterForm.css'
+import config from '../../config'
+
 export default class RegisterForm extends React.Component {
   state = {
     error: null,
@@ -91,36 +93,60 @@ export default class RegisterForm extends React.Component {
   }
 
   handleSubmit = ev => {
-      ev.preventDefault();
-      const { firstName, lastName, email, password, confirmPassword } = ev.target
-      if (!this.validateFirstName(firstName.value)) {
-        return
-      }
-      if (!this.validateLastName(lastName.value)) {
-        return
-      }
-      if (!this.validateEmail(email.value)) {
-        return
-      }
-      if (!this.validatePassword(password.value)) {
-        return
-      }
+    ev.preventDefault();
+    const { firstName, lastName, email, password, confirmPassword } = ev.target
+    if (!this.validateFirstName(firstName.value)) {
+      return
+    }
+    if (!this.validateLastName(lastName.value)) {
+      return
+    }
+    if (!this.validateEmail(email.value)) {
+      return
+    }
+    if (!this.validatePassword(password.value)) {
+      return
+    }
 
-      if (!this.validateConfirmPassword(password, confirmPassword)) {
-        return
-      }
-
-      this.setState({ error: null })
-      
-      //submit to API
-
-      //this.history.push('/home')
+    if (!this.validateConfirmPassword(password.value, confirmPassword.value)) {
+      return
+    }
+    this.setState({ error: null })
+    //submit to API
+    fetch(`${config.API_ENDPOINT}/users`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        first_name: firstName.value,
+        last_name: lastName.value,
+        email: email.value,
+        password: password.value,
+        })
+    })
+    .then(res => 
+      (!res.ok) 
+      ? res.json().then(e => Promise.reject(e)) 
+      : res.json()
+    )
+    .then(user => {
+      firstName.value = ''
+      lastName.value = ''
+      email.value = ''
+      password.value = ''
+      confirmPassword.value = ''
+      this.props.history.push('/login')
+    })
+    .catch(res => {
+      this.setState({ error: res.error })
+    })
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-          <input type='text' name='register-first-name' id='register-first-name' onFocus={this.refreshError} placeholder='First Name' required></input>
+          <input type='text' name='firstName' id='firstName' onFocus={this.refreshError} placeholder='First Name' required></input>
           {this.state.errorFirst && <p className="form-error">{this.state.errorFirst}</p>}
           <input type='text' name='lastName' id='lastName' onFocus={this.refreshError} placeholder='Last Name' required></input>
           {this.state.errorLastName && <p className="form-error">{this.state.errorLastName}</p>}
