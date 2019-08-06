@@ -11,9 +11,10 @@ export default class LoginForm extends React.Component {
     e.preventDefault()
     this.setState({ error: null })
     const { email, password } = e.target
+    console.log(email.value)
     fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
-      authorization: {
+      headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify({
@@ -46,7 +47,7 @@ export default class LoginForm extends React.Component {
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <input type='email' name='email' id='email' placeholder='Email' required></input>
+        <input type='text' name='email' id='email' placeholder='Email' required></input>
         <input type='password' name='password' id='password' placeholder='Password' required></input>
         <button type='submit'>Login</button>
         <button onClick={this.demoUserLogin}>
