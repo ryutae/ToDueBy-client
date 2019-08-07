@@ -45,7 +45,7 @@ export default class Header extends React.Component {
                         <FontAwesomeIcon icon={faBars} />
                     </button>
                     <HamburgerMenu
-                        isOpen={this.state.open}
+                        isOpen={this.state.menuOpen}
                         menuClicked={this.handleClick.bind(this)}
                         width={18}
                         height={15}

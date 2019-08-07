@@ -3,6 +3,8 @@ import ProjectListContext from '../../contexts/ProjectListContext'
 import TokenService from '../../services/token-service'
 import ProjectListItem from '../ProjectListItem/ProjectListItem'
 import config from '../../config'
+import './ProjectList.css'
+
 export default class ProjectList extends React.Component {
     static contextType = ProjectListContext
 
@@ -36,7 +38,7 @@ export default class ProjectList extends React.Component {
     render() {
         const { error } = this.context
         return (
-            <section list className='ProjectList'>
+            <section className='ProjectList'>
             {error
                 ? <p className='red'>There was an error, try again</p>
                 : this.renderProjects()}
