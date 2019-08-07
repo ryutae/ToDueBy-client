@@ -32,7 +32,7 @@ export default class RegisterForm extends React.Component {
       this.setState({errorPassword: 'Password must not start or end with empty spaces'})
       result = false
     }
-    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/.test(password)) {
+    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/.test(password)) {
       this.setState({errorPassword: 'Password must contain one upper case, lower case, number and special character'})
       result = false
     }
