@@ -29,7 +29,7 @@ export default class ProjectList extends React.Component {
         const { projectList = [] } = this.context
         return projectList.map(project => 
             <ProjectListItem
-                key={project.id}
+                key={project.project_id}
                 project={project}
             />
         )

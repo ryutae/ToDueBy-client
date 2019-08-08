@@ -1,7 +1,9 @@
 import React from 'react'
 
+
+
 const ProjectContext = React.createContext({
-    project: {},
+    project: [],
     tasks: [],
     setError: () => {},
     clearError: () => {},
@@ -15,7 +17,8 @@ export default ProjectContext
 
 export class ProjectProvider extends React.Component {
     state = {
-        project: {},
+        project: [],
+        tasks: [],
         error: null
     }
 
@@ -29,7 +32,7 @@ export class ProjectProvider extends React.Component {
     }
 
     setProject = project => {
-    this.setState({ project })
+    this.setState({project: project})
     }
 
     setTasks = tasks => {
