@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './TaskListItem.css'
 
 export default class TaskListItem extends React.Component {
     render() {

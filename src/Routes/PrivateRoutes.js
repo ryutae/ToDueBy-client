@@ -11,10 +11,12 @@ export default class PrivateRoutes extends React.Component {
         return (
             <div className='main-container'>
                 <SideMenu/>
-                <Switch className='main-content'>
-                    <Route path='/dashboard' component={HomePage}/>
-                    <Route exact path='/project/:project_id/' component={ProjectPage}/>
-                    <Route path='/project/:project_id/task/:task_id' component={TaskPage}/>
+                <Switch>
+                    <div className='main-content'>
+                        <Route path='/dashboard' component={HomePage}/>
+                        <Route exact path='/project/:project_id/' component={ProjectPage}/>
+                        <Route path='/project/:project_id/task/:task_id' component={TaskPage}/>
+                    </div>
                 </Switch>
             </div>
         )

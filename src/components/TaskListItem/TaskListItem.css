@@ -1,0 +1,11 @@
+.TaskListItem {
+    margin: 5px 0;
+    padding: 7px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.TaskListItem:hover {
+    background-color: grey;
+}
