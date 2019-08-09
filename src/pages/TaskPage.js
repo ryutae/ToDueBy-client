@@ -48,7 +48,7 @@ export default class TaskPage extends React.Component {
                 <p>Created by: {task.created_first_name} {task.created_last_name}</p>
                 <p>Assigned to: {task.assigned_to_first_name} {task.assigned_to_last_name}</p>
                 <p>Due Date: {task.task_due_date}</p>
-                <button onClick={() => this.props.history.goBack()}>
+                <button onClick={() => this.props.history.goBack()} className='back_button'>
                     Back
                 </button>
             </section>

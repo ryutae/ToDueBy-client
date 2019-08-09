@@ -1,6 +1,7 @@
 import React from 'react'
 import TaskListItem from '../TaskListItem/TaskListItem'
 import ProjectContext from '../../contexts/ProjectContext';
+import './TaskList.css'
 
 export default class TaskList extends React.Component {
     static contextType = ProjectContext

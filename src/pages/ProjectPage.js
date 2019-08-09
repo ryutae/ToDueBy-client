@@ -44,7 +44,7 @@ export default class ProjectPage extends React.Component {
           </h2>
           <p>{this.context.project.description}</p>
           <TaskList />
-          <button onClick={() => this.props.history.goBack()}>
+          <button onClick={() => this.props.history.goBack()} className='back_button'>
                     Back
           </button>
       </div>

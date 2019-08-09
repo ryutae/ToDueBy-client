@@ -30,7 +30,17 @@ main {
   font-size: 2rem;
 }
 
+.back_button {
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 7px auto
+}
 
+.back_button:hover {
+  background-color: orange;
+  color: white;
+}
 
 @media screen and (max-width: 600px) {
   main, .side-menu {

@@ -5,8 +5,10 @@ export default class TaskListItem extends React.Component {
     render() {
         const { task } = this.props
         return (
-            <Link to={`/project/${task.project_id}/task/${task.id}`} className='TaskListItem'>
-                {task.name} - {task.description}
+            <Link to={`/project/${task.project_id}/task/${task.id}`}>
+                <div className='TaskListItem'>
+                    {task.name} - {task.description}
+                </div>
             </Link>
         )
     }
