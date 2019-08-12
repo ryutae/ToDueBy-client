@@ -3,6 +3,7 @@ import ProjectContext from '../contexts/ProjectContext'
 import config from '../config'
 import TokenService from '../services/token-service'
 import TaskList from '../components/TaskList/TaskList'
+import { Link } from 'react-router-dom'
 
 export default class ProjectPage extends React.Component {
   static contextType = ProjectContext
@@ -35,6 +36,8 @@ export default class ProjectPage extends React.Component {
 
   }
 
+  handleAddTask
+
   render() {
     return (
       <div>
@@ -43,12 +46,14 @@ export default class ProjectPage extends React.Component {
             {this.context.project.name}
           </h2>
           <p>{this.context.project.description}</p>
-          <button className='add_button'>
-            Add Task
-          </button>
+          <Link to={`/project/${this.props.match.params.project_id}/create-task`}>
+            <button className='add_button'>
+              Add Task
+            </button>
+          </Link>
           <TaskList />
           <button onClick={() => this.props.history.goBack()} className='back_button'>
-                    Back
+            Back
           </button>
       </div>
     )

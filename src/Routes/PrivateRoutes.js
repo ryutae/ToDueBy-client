@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage'
 import ProjectPage from '../pages/ProjectPage';
 import TaskPage from '../pages/TaskPage';
 import SideMenu from '../components/SideMenu/SideMenu';
+import CreateTask from '../components/CreateTask/CreateTask'
 import ('./PrivateRoutes.css')
 
 export default class PrivateRoutes extends React.Component {
@@ -16,6 +17,7 @@ export default class PrivateRoutes extends React.Component {
                         <Route path='/dashboard' component={HomePage}/>
                         <Route exact path='/project/:project_id/' component={ProjectPage}/>
                         <Route path='/project/:project_id/task/:task_id' component={TaskPage}/>
+                        <Route path='/project/:project_id/create-task' component={CreateTask}/>
                     </div>
                 </Switch>
             </div>
