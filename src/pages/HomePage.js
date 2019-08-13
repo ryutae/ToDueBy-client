@@ -37,7 +37,6 @@ export default class HomePage extends React.Component {
       project.name === joinProjectName
       )
     const project_id = projectObject[0].id
-    console.log(`${config.API_ENDPOINT}/projects/join/${project_id}`)
     fetch(`${config.API_ENDPOINT}/projects/join/${project_id}`, {
       method: 'POST',
       headers: {
@@ -85,7 +84,7 @@ export default class HomePage extends React.Component {
           </label>
           <datalist id='projects'>
             {this.state.allProjects.map(project => {
-              return <option value={`${project.name}`} />
+              return <option key={project.id} value={`${project.name}`} />
             })}
           </datalist>
           
