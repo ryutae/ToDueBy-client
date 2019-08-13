@@ -5,13 +5,15 @@ import React from 'react'
 const ProjectContext = React.createContext({
     project: [],
     tasks: [],
+    members: [],
     setError: () => {},
     clearError: () => {},
     setProject: () => {},
     clearProject: () => {},
     setTasks: () => {},
     addTask: () => {},
-    updateProject: () => {}
+    updateProject: () => {},
+    setMembers: () => {}
 })
 
 export default ProjectContext
@@ -20,6 +22,7 @@ export class ProjectProvider extends React.Component {
     state = {
         project: [],
         tasks: [],
+        members: [],
         error: null
     }
 
@@ -39,10 +42,15 @@ export class ProjectProvider extends React.Component {
     setTasks = tasks => {
     this.setState({ tasks })
     }
+    
+    setMembers = members => {
+    this.setState({ members })
+    }
 
     clearProject = () => {
     this.setProject({})
     this.setTasks([])
+    this.setMembers([])
     }
 
     addTask = task => {
@@ -60,6 +68,7 @@ export class ProjectProvider extends React.Component {
         const value = {
             project: this.state.project,
             tasks: this.state.tasks,
+            members: this.state.members,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
@@ -67,7 +76,8 @@ export class ProjectProvider extends React.Component {
             setTasks: this.setTasks,
             clearProject: this.clearProject,
             addTask: this.addTask,
-            updateProject: this.updateProject
+            updateProject: this.updateProject,
+            setMembers: this.setMembers
           }
         return (
             <ProjectContext.Provider value={value}>

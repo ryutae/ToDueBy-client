@@ -4,6 +4,7 @@ import config from '../config'
 import TokenService from '../services/token-service'
 import TaskList from '../components/TaskList/TaskList'
 import { Link } from 'react-router-dom'
+import MemberList from '../components/MemberList/MemberList';
 
 export default class ProjectPage extends React.Component {
   static contextType = ProjectContext
@@ -21,16 +22,23 @@ export default class ProjectPage extends React.Component {
       method: 'GET',
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
-      }})
+      }}),
+    fetch(`${config.API_ENDPOINT}/projects/${project_id}/members`, {
+      method: 'GET',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
     ])
   
-    .then(([res1, res2]) => {
-      return Promise.all([res1.json(), res2.json()])
+    .then(([res1, res2, res3]) => {
+      return Promise.all([res1.json(), res2.json(), res3.json()])
     })
-    .then(([res1Json, res2Json]) => {
+    .then(([res1Json, res2Json, res3Json]) => {
       console.log(res2Json)
       this.context.setProject(res1Json)
       this.context.setTasks(res2Json)
+      this.context.setMembers(res3Json)
     })
     .catch(this.context.setError)
 
@@ -39,6 +47,7 @@ export default class ProjectPage extends React.Component {
   handleAddTask
 
   render() {
+    console.log(this.context)
     return (
       <div>
           <h1>Project Page</h1>
@@ -56,6 +65,7 @@ export default class ProjectPage extends React.Component {
               Add Task
             </button>
           </Link>
+          <MemberList />
           <TaskList />
           <button onClick={() => this.props.history.goBack()} className='back_button'>
             Back
