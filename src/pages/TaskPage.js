@@ -2,6 +2,7 @@ import React from 'react'
 import ProjectContext from '../contexts/ProjectContext'
 import config from '../config'
 import TokenService from '../services/token-service'
+import TaskAssign from '../components/TaskAssign/TaskAssign'
 
 export default class TaskPage extends React.Component {
   static contextType = ProjectContext
@@ -47,6 +48,7 @@ export default class TaskPage extends React.Component {
                 <p>{task.task_name}</p>
                 <p>Created by: {task.created_first_name} {task.created_last_name}</p>
                 <p>Assigned to: {task.assigned_to_first_name} {task.assigned_to_last_name}</p>
+                <TaskAssign task={task} match={this.props.match} history={this.props.history} />
                 <p>Due Date: {task.task_due_date}</p>
                 <button onClick={() => this.props.history.goBack()} className='back_button'>
                     Back

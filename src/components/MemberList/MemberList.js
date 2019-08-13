@@ -17,7 +17,6 @@ export default class MemberList extends React.Component {
                     return <p>
                         {member.first_name} {member.last_name}    
                     </p>
-                        
                 })
                 }
             </div>
