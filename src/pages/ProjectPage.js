@@ -46,6 +46,11 @@ export default class ProjectPage extends React.Component {
             {this.context.project.name}
           </h2>
           <p>{this.context.project.description}</p>
+          <Link to={`/project/${this.props.match.params.project_id}/edit`}>
+            <button>
+              Edit Project
+            </button>
+          </Link>
           <Link to={`/project/${this.props.match.params.project_id}/create-task`}>
             <button className='add_button'>
               Add Task

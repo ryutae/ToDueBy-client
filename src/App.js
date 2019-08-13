@@ -18,6 +18,7 @@ class App extends Component {
           <Switch>
             <Route path='/dashboard' component={PrivateRoutes}/>
             <Route path='/project' component={PrivateRoutes}/>
+            <Route path='/project-create' component={PrivateRoutes}/>
             <Route component={PublicRoutes}/>
             {/* <Route 
               exact path='/home' 

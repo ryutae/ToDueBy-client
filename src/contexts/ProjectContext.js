@@ -10,7 +10,8 @@ const ProjectContext = React.createContext({
     setProject: () => {},
     clearProject: () => {},
     setTasks: () => {},
-    addTask: () => {}
+    addTask: () => {},
+    updateProject: () => {}
 })
 
 export default ProjectContext
@@ -51,6 +52,10 @@ export class ProjectProvider extends React.Component {
     ])
     }
 
+    updateProject = project => {
+        this.setState({project: project})
+    }
+
     render() {
         const value = {
             project: this.state.project,
@@ -62,6 +67,7 @@ export class ProjectProvider extends React.Component {
             setTasks: this.setTasks,
             clearProject: this.clearProject,
             addTask: this.addTask,
+            updateProject: this.updateProject
           }
         return (
             <ProjectContext.Provider value={value}>

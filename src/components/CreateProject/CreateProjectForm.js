@@ -40,9 +40,15 @@ export default class CreateProjectForm extends React.Component{
     render() {
         return (
             <form className='create_project_form' onSubmit={this.handleSubmitCreateProject}>
-                <input type='text' name='project_name' id='project_name' onFocus={this.refreshError} placeholder='First Name' required></input>
+                <label>
+                    Project Name
+                    <input type='text' name='project_name' id='project_name' onFocus={this.refreshError} placeholder='Project Name' required></input>
+                </label>
                 {this.state.errorProjectName && <p className="form_error">{this.state.errorProjectName}</p>}
-                <input type='text' name='project_description' id='project_description' placeholder='Last Name' required></input>
+                <label>
+                    Description
+                    <input type='text' name='project_description' id='project_description' placeholder='Description' required></input>
+                </label>
                 <button type='submit' className='submit_button'>Submit</button>
             </form>
         )
