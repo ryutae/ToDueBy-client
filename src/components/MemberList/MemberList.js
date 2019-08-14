@@ -14,7 +14,7 @@ export default class MemberList extends React.Component {
             <div className='memberList'>
                 <h4>Members</h4>
                 {memberList.length && memberList.map(member => {
-                    return <p>
+                    return <p key={member.id}>
                         {member.first_name} {member.last_name}    
                     </p>
                 })
