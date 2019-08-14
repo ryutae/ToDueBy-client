@@ -7,7 +7,7 @@ export default class TaskList extends React.Component {
     static contextType = ProjectContext
 
     renderTasks() {
-        const taskList = this.context.tasks
+        const taskList = this.props.tasks
         return taskList.map(task => 
             <TaskListItem
                 key={task.id}
