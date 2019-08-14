@@ -48,6 +48,7 @@ export default class ProjectPage extends React.Component {
 
   render() {
     console.log(this.context)
+    const uncompletedTasks = this.context.tasks.filter(task => task.completed_by == null)
     return (
       <div>
           <h1>Project Page</h1>
@@ -66,7 +67,7 @@ export default class ProjectPage extends React.Component {
             </button>
           </Link>
           <MemberList />
-          <TaskList />
+          <TaskList tasks={uncompletedTasks} />
           <button onClick={() => this.props.history.goBack()} className='back_button'>
             Back
           </button>
