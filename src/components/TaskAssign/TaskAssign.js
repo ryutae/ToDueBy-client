@@ -67,20 +67,15 @@ export default class TaskAssign extends React.Component {
     render() {
         const { assignedTo } = this.state
         return (
-        <form onSubmit={this.handleAssignTask}>
-            <input type='text' name='assign' list='members' placeholder='Assign To' value={assignedTo} onChange={e => this.handleChangeMember(e.target.value)}/>
-            <datalist id='members'>
-                {this.context.members.map(member => {
-                return <option key={member.id} value={`${member.first_name} ${member.last_name}`} />
-                })}
-            </datalist>
-          
-            {assignedTo &&
-                <button type='submit'>
-                    Assign
-                </button>
-            }
-        </form>
+            <>
+                <input type='text' name='assign' list='members' placeholder='Assign To' value={assignedTo} onChange={this.props.handleChangeMember}/>
+                <datalist id='members'>
+                    {this.context.members.map(member => {
+                    return <option key={member.id} value={`${member.first_name} ${member.last_name}`} />
+                    })}
+                </datalist>
+            </>
+
         )
     }
 }
