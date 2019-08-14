@@ -146,6 +146,18 @@ export default class TaskPage extends React.Component {
         })
         
     }
+
+    handleCompleteTask = e => {
+        e.preventDefault()
+        fetch(`${config.API_ENDPOINT}/tasks/${this.props.match.params.task_id}/complete`, {
+            method: 'POST',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+        .then(this.fetchTasks)
+        .then(this.props.history.goBack())
+    }
    
     render() {
         const { task,
@@ -201,6 +213,9 @@ export default class TaskPage extends React.Component {
                     </button>
                     }
                 </form>
+                <button onClick={this.handleCompleteTask}>
+                    Complete Task
+                </button>
                 <button onClick={() => this.props.history.goBack()} className='back_button'>
                     Back
                 </button>
