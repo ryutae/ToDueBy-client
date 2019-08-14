@@ -111,7 +111,6 @@ export default class TaskPage extends React.Component {
             assigned_to_last_name: last_name,
             formUpdated: true
         })
-        debugger
     }
 
     handleSave = e => {
@@ -176,7 +175,10 @@ export default class TaskPage extends React.Component {
                     <p>Created by: {created_first_name} {created_last_name}</p>
                     <label>
                         Assigned To
-                        <select value={assignedTo} onChange={this.handleChangeMember}>
+                        <select name='assigned_to' value={assignedTo} onChange={this.handleChangeMember}>
+                            <option value={null}>
+                                
+                            </option>
                             {this.context.members.map(member => {
                             return (
                                 <option key={member.id} value={`${member.first_name} ${member.last_name}`}>
