@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './MenuContent.css'
 
 export default class MenuContent extends React.Component {
@@ -7,10 +8,15 @@ export default class MenuContent extends React.Component {
             <section className='menu-content'>
                 <h3>Menu</h3>
                 <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
+                    <Link to='/dashboard'>
+                        <li>Home</li>
+                    </Link>
+                    <Link to='/mytasks'>
+                        <li>My Tasks</li>
+                    </Link>
+                    <li>Tasks I've Created</li>
+                    <li>Tasks I've Completed</li>
+                    <li>My Projects</li>
                 </ul>
             </section>
         )
