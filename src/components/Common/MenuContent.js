@@ -17,7 +17,9 @@ export default class MenuContent extends React.Component {
                     <Link to='/lists/mycreatedtasks'>
                         <li>Tasks I've Created</li>
                     </Link>
-                    <li>Tasks I've Completed</li>
+                    <Link to='/lists/mycompletedtasks'>
+                        <li>Tasks I've completed</li>
+                    </Link>
                     <li>My Projects</li>
                 </ul>
             </section>

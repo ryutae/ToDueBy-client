@@ -9,6 +9,7 @@ import CreateProject from '../components/CreateProject/CreateProjectForm'
 import UpdateProject from '../components/UpdateProject/UpdateProject';
 import MyOpenTasks from '../components/Lists/MyOpenTasks';
 import MyCreatedTasks from '../components/Lists/MyCreatedTasks';
+import MyCompletedTasks from '../components/Lists/MyCompletedTasks';
 import ('./PrivateRoutes.css')
 
 export default class PrivateRoutes extends React.Component {
@@ -26,6 +27,7 @@ export default class PrivateRoutes extends React.Component {
                         <Route path='/project/:project_id/create-task' component={CreateTask}/>
                         <Route path='/lists/myopentasks' component={MyOpenTasks}/>
                         <Route path='/lists/mycreatedtasks' component={MyCreatedTasks}/>
+                        <Route path='/lists/mycompletedtasks' component={MyCompletedTasks}/>
                     </Switch>
                 </div>
             </div>
