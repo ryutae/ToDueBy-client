@@ -6,6 +6,9 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CheeseburgerMenu from 'cheeseburger-menu'
 import HamburgerMenu from 'react-hamburger-menu'
 import MenuContent from './MenuContent'
+import TokenService from '../../services/token-service';
+import UserContext from '../../contexts/UserContext'
+
 export default class Header extends React.Component {
     constructor(props) {
         super(props)
@@ -14,6 +17,8 @@ export default class Header extends React.Component {
           menuOpen: false,
         }
     }
+
+    static contextType = UserContext
   
     openMenu() {
       this.setState({ menuOpen: true })
@@ -28,6 +33,47 @@ export default class Header extends React.Component {
         });
     }
 
+    handleLogoutClick = () => {
+        TokenService.clearAuthToken()
+        this.context.setUserLoggedInFalse()
+    }
+      
+    renderLogoutLinkAndMenuButton() {
+        return (
+        <li>
+            <Link
+            onClick={this.handleLogoutClick}
+            to='/'>
+            Logout
+            </Link>
+            <HamburgerMenu
+                isOpen={this.state.menuOpen}
+                menuClicked={this.handleClick.bind(this)}
+                width={18}
+                height={15}
+                strokeWidth={1}
+                rotate={0}
+                color='black'
+                borderRadius={0}
+                animationDuration={0.5}
+                />
+                <CheeseburgerMenu
+                    isOpen={this.state.menuOpen}
+                    closeCallback={this.closeMenu.bind(this)}>
+                    <MenuContent closeCallback={this.closeMenu.bind(this)}/>
+                </CheeseburgerMenu>
+        </li>
+        )
+    }
+      
+    renderLoginLink() {
+        return (
+        <>
+            <li><Link to='/login'>Login</Link></li>
+            <li><Link to='/register'>Register</Link></li>
+        </>
+        )
+    }
     
     render() {
         return (
@@ -36,30 +82,14 @@ export default class Header extends React.Component {
                     <p className='title'>ToDueBy</p>
                 </Link>
                 <div className='navbar'>
-                    <div className='navlinks'>
-                        <Link to='/dashboard'>Home</Link>
-                        <Link to='/login'>Login</Link>
-                        <Link to='/register'>Register</Link>
-                    </div>
-                    <button className='menu-button'>
-                        <FontAwesomeIcon icon={faBars} />
-                    </button>
-                    <HamburgerMenu
-                        isOpen={this.state.menuOpen}
-                        menuClicked={this.handleClick.bind(this)}
-                        width={18}
-                        height={15}
-                        strokeWidth={1}
-                        rotate={0}
-                        color='black'
-                        borderRadius={0}
-                        animationDuration={0.5}
-                    />
-                    <CheeseburgerMenu
-                        isOpen={this.state.menuOpen}
-                        closeCallback={this.closeMenu.bind(this)}>
-                        <MenuContent closeCallback={this.closeMenu.bind(this)}/>
-                    </CheeseburgerMenu>
+                    <nav className='navbar'>
+                        <ul>
+                            <li><Link to='/dashboard'>Home</Link></li>
+                            {TokenService.hasAuthToken()
+                            ? this.renderLogoutLinkAndMenuButton()
+                            : this.renderLoginLink()}
+                        </ul>
+                    </nav>
                 </div>
 
             </header>

@@ -7,14 +7,17 @@ import * as serviceWorker from './serviceWorker';
 import 'normalize.css';
 import { ProjectProvider } from './contexts/ProjectContext'
 import { ProjectListProvider } from './contexts/ProjectListContext'
+import { UserProvider } from './contexts/UserContext'
 
 ReactDOM.render(
     <BrowserRouter>
-        <ProjectListProvider>
-            <ProjectProvider>
-                <App />
-            </ProjectProvider>
-        </ProjectListProvider>
+        <UserProvider>
+            <ProjectListProvider>
+                <ProjectProvider>
+                    <App />
+                </ProjectProvider>
+            </ProjectListProvider>
+        </UserProvider>
     </BrowserRouter>, document.getElementById('root'));
 
 serviceWorker.unregister();

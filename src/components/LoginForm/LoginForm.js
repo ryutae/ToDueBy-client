@@ -1,8 +1,11 @@
 import React from 'react'
 import config from '../../config'
 import TokenService from '../../services/token-service'
+import UserContext from '../../contexts/UserContext';
 
 export default class LoginForm extends React.Component {
+  static contextType = UserContext
+
   static defaultProps = {
     onLoginSuccess: () => {}
   }
@@ -34,12 +37,44 @@ export default class LoginForm extends React.Component {
     .then(res => {
       email.value = ''
       password.value = ''
+      this.context.setUserLoggedInTrue()
       this.props.onLoginSuccess()
     })
     .catch(res => {
       this.setState({error: res.error})
     })
   }
+
+  demoUserLogin = () => {
+    fetch(`${config.API_ENDPOINT}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        user_name: 'demo',
+        password: 'P@ssw0rd',
+      })
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        return res
+      })
+      .then(res => {
+        this.context.setUserLoggedInTrue()
+        this.props.history.push('/dashboard')
+      })
+      .catch(res => {
+        this.context.setError(res.error)
+      })  
+  }
+
+
   render() {
     const { error } = this.state
     return (
