@@ -19,6 +19,7 @@ class App extends Component {
             <Route path='/dashboard' component={PrivateRoutes}/>
             <Route path='/project' component={PrivateRoutes}/>
             <Route path='/project-create' component={PrivateRoutes}/>
+            <Route path='/lists' component={PrivateRoutes}/>
             <Route component={PublicRoutes}/>
             {/* <Route 
               exact path='/home' 

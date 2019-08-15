@@ -11,10 +11,12 @@ export default class MenuContent extends React.Component {
                     <Link to='/dashboard'>
                         <li>Home</li>
                     </Link>
-                    <Link to='/mytasks'>
+                    <Link to='/lists/myopentasks'>
                         <li>My Tasks</li>
                     </Link>
-                    <li>Tasks I've Created</li>
+                    <Link to='/lists/mycreatedtasks'>
+                        <li>Tasks I've Created</li>
+                    </Link>
                     <li>Tasks I've Completed</li>
                     <li>My Projects</li>
                 </ul>
