@@ -5,6 +5,14 @@ import ProjectContext from '../../contexts/ProjectContext';
 
 export default class CreateTask extends React.Component {
   static contextType = ProjectContext
+  constructor(props) {
+    super(props)
+    this.state = {
+      assignedTo: '',
+      assignedTo_id: null
+    }
+  }
+
   handleCreateTask = e => {
     e.preventDefault()
     const { new_task_name, new_task_description, new_task_due_date, new_task_assigned_to } = e.target
@@ -15,13 +23,12 @@ export default class CreateTask extends React.Component {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-      // const { project_id, name, description, due_date, assigned_to } = req.body
       body: JSON.stringify({
         project_id: project_id,
         name: new_task_name.value,
         description: new_task_description.value,
         due_date: new_task_due_date.value,
-        assigned_to: new_task_assigned_to.value,
+        assigned_to: this.state.assignedTo_id,
       })
     })
     .then(res =>
@@ -37,7 +44,20 @@ export default class CreateTask extends React.Component {
     .catch(this.context.setError)
   }
 
+  handleChangeMember =  e => {
+    const assignedTo = e.target.value
+    const memberObject = this.context.members.filter(member =>
+        assignedTo === (`${member.first_name} ${member.last_name}`)    
+    )
+    const { id } = memberObject[0]
+    this.setState({
+      assignedTo: assignedTo,
+      assignedTo_id: id
+    })
+  }
+
   render() {
+    const { assignedTo } = this.state
     return (
       <section className='create-task'>
         <h2>Create Task</h2>
@@ -55,9 +75,21 @@ export default class CreateTask extends React.Component {
             <input type='date' id='new_task_due_date' name='new_task_due_date' placeholder='Due Date'/>
           </label>
           <label>
-            Assigned To:
-            <input type='list' id='new_task_assigned_to' name='new_task_assigned_to' placeholder='Assigned To'/>
+            Assigned To
+            <select id='new_task_assigned_to' name='new_task_assigned_to' value={assignedTo} onChange={this.handleChangeMember}>
+                <option value={null}> 
+                </option>
+                {this.context.members.map(member => {
+                  return (
+                      <option key={member.id} value={`${member.first_name} ${member.last_name}`}>
+                          {member.first_name} {member.last_name}
+                      </option>
+                  )
+                })}
+            </select>
           </label>
+
+
           <button type='submit'>
             Add Task
           </button>
