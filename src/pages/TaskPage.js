@@ -116,7 +116,6 @@ export default class TaskPage extends React.Component {
     handleSave = e => {
         e.preventDefault()
         const { task_name, task_description, task_due_date, assigned_to_id } = this.state
-        debugger
         fetch(`${config.API_ENDPOINT}/tasks/${this.props.match.params.task_id}`, {
             method: 'PATCH',
             headers: {
@@ -157,6 +156,18 @@ export default class TaskPage extends React.Component {
         })
         .then(this.fetchTasks)
         .then(this.props.history.goBack())
+    }
+
+    renderComplete() {
+        const { date_completed,
+            completed_by_id,
+            completed_by_first_name,
+            completed_by_last_name } = this.state
+        return (
+            <div className='completed_details'>
+                <p>{completed_by_first_name} {completed_by_last_name} completed this task on {Moment(date_completed).format('MMMM Do YYYY')}</p>
+            </div>
+        )
     }
    
     render() {
@@ -213,9 +224,10 @@ export default class TaskPage extends React.Component {
                     </button>
                     }
                 </form>
-                <button onClick={this.handleCompleteTask}>
+                {completed_by_id && this.renderComplete()}
+                {!completed_by_id && <button onClick={this.handleCompleteTask}>
                     Complete Task
-                </button>
+                </button>}
                 <button onClick={() => this.props.history.goBack()} className='back_button'>
                     Back
                 </button>
