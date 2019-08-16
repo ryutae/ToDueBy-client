@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,6 +11,10 @@ code {
     monospace;
 }
 
+* {
+	box-sizing: border-box;
+
+  }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
