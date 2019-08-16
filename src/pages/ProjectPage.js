@@ -52,7 +52,6 @@ export default class ProjectPage extends React.Component {
       return Promise.all([res1.json(), res2.json(), res3.json()])
     })
     .then(([res1Json, res2Json, res3Json]) => {
-      console.log(res1Json)
       this.context.setProject(res1Json)
       this.context.setTasks(res2Json)
       this.context.setMembers(res3Json)
@@ -87,7 +86,6 @@ export default class ProjectPage extends React.Component {
       return Promise.all([res1.json(), res2.json(), res3.json()])
     })
     .then(([res1Json, res2Json, res3Json]) => {
-      console.log(res1Json)
       this.context.setProject(res1Json)
       this.context.setTasks(res2Json)
       this.context.setMembers(res3Json)
@@ -97,7 +95,6 @@ export default class ProjectPage extends React.Component {
   }
 
   render() {
-    console.log(this.context)
     const uncompletedTasks = this.context.tasks.filter(task => task.completed_by == null)
     return (
       <div>
@@ -124,4 +121,5 @@ export default class ProjectPage extends React.Component {
       </div>
     )
   }
+
 }
