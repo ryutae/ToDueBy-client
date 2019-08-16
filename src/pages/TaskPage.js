@@ -25,7 +25,7 @@ export default class TaskPage extends React.Component {
             completed_by_id: null,
             completed_by_first_name: null,
             completed_by_last_name: null,
-            
+            formSaved: false,
             formUpdated: false,
             assignedTo: ''
         }
@@ -130,6 +130,7 @@ export default class TaskPage extends React.Component {
             })
         })
         .then(this.fetchTasks)
+        .then(this.setState({formSaved: true}))
     }
 
     fetchTasks = () => {
@@ -188,7 +189,8 @@ export default class TaskPage extends React.Component {
             completed_by_first_name,
             completed_by_last_name,
             formUpdated,
-            assignedTo  } = this.state
+            assignedTo,
+            formSaved  } = this.state
 
         return (
             <section className='task-page'>
@@ -224,6 +226,7 @@ export default class TaskPage extends React.Component {
                     </button>
                     }
                 </form>
+                {formSaved && <p className='saved_message'>Task saved</p>}
                 {completed_by_id && this.renderComplete()}
                 {!completed_by_id && <button onClick={this.handleCompleteTask}>
                     Complete Task
