@@ -5,8 +5,12 @@ export default class ProjectListItem extends React.Component {
     render() {
         const { project } = this.props
         return (
-            <Link to={`/project/${project.project_id}`} className='ProjectListItem'>
-                {project.name} - {project.description}
+            <Link to={`/project/${project.project_id}`}>
+                <div className='ProjectListItem'>
+                    <p className='project_title'>
+                        {project.name}
+                    </p>
+                </div>
             </Link>
         )
     }

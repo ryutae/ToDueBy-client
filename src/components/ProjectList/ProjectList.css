@@ -1,11 +1,27 @@
 .ProjectList {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center
 }
 
 .ProjectListItem {
     border: solid 1px black;
     border-radius: 5px;
-    padding: 5px;
-    margin: 5px 8px;
+    padding: 1em;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    margin: 10px auto;
+    transition-duration: .4s;
+}
+
+.ProjectListItem:hover {
+    background: #6deb73;
+    transform: translate3d(0, -5px, 0);
+}
+
+.project_title {
+    margin: auto;
 }

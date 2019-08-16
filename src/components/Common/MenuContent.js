@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './MenuContent.css'
 import ProjectListContext from '../../contexts/ProjectListContext'
 import config from '../../config';
 import TokenService from '../../services/token-service';
+
 export default class MenuContent extends React.Component {
     static contextType = ProjectListContext
     constructor(props) {
@@ -40,7 +40,7 @@ export default class MenuContent extends React.Component {
             projectList.map(project => {
                 return (
                     <Link to={`/project/${project.project_id}`}>
-                        <div>
+                        <div className='menu_item'>
                             {project.name}
                         </div>
                     </Link>
@@ -52,23 +52,29 @@ export default class MenuContent extends React.Component {
     render() {
         return (
             <section className='menu-content'>
-                <h3>Menu</h3>
-                <ul>
-                    <Link to='/dashboard'>
-                        <li>Home</li>
-                    </Link>
-                    <Link to='/lists/myopentasks'>
-                        <li>My Tasks</li>
-                    </Link>
+                <i class="fas fa-clipboard-list"></i>
+                <h3>ToDueBy</h3>
+
+                <Link to='/dashboard'>
+                    <div className='menu_item'>Home</div>
+                </Link>
+                <Link to='/lists/myopentasks'>
+                    <div className='menu_item'>My Tasks</div>
+                </Link>
+                <div className='menu_section'>
+                    <div className='menu_section_header'>Lists</div>
                     <Link to='/lists/mycreatedtasks'>
-                        <li>Tasks I've Created</li>
+                        <div className='menu_item'>Tasks I've Created</div>
                     </Link>
                     <Link to='/lists/mycompletedtasks'>
-                        <li>Tasks I've completed</li>
+                        <div className='menu_item'>Tasks I've completed</div>
                     </Link>
-                    <li>My Projects</li>
+                </div>    
+                <div className='menu_section'>
+                    <div className='menu_section_header'>Projects</div>
                     {this.renderProjectList()}
-                </ul>
+                </div>
+                
 
             </section>
         )

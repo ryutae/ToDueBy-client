@@ -1,4 +1,34 @@
 .side-menu {
     border: solid black 1px;
+    background-color: #171d29;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: #ffffff;
+    padding-top: 10px;
+}
+
+.side-menu > a {
+    color: #ffffff
+}
+
+.menu_section {
+    border-top: .5px solid #5c5b5b;
+}
+
+.menu_section_header {
+    margin-top: 10px;
+    color: #5c5b5b;
+}
+
+.menu_item {
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+    margin: 8px 0px;
+}
+
+.menu_item:hover {
+    background-color: #5c5b5b
 }
 
