@@ -15,15 +15,6 @@ export default class ProjectPage extends React.Component {
   }
   static contextType = ProjectContext
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.match.params.project_id === prevState.project_id || !prevState.project_id) {
-      return null
-    }
-    return {
-      project_id: nextProps.match.params.project_id
-    }
- }
-
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.project_id !== this.props.match.params.project_id) {
 
