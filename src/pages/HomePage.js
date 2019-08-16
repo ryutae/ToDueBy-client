@@ -8,12 +8,13 @@ import ProjectListContext from '../contexts/ProjectListContext'
 export default class HomePage extends React.Component {
   static contextType = ProjectListContext
   state = {
-    allProjects: [],
+    joinProjects: [],
+    joinProjectSelected: null,
     error: null
   }
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/projects/project/all`, {
+    fetch(`${config.API_ENDPOINT}/projects/project/join`, {
       method: 'GET',
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -25,7 +26,7 @@ export default class HomePage extends React.Component {
         : res.json()
     )
     .then(resJson => {
-      this.setState({allProjects: resJson})
+      this.setState({joinProjects: resJson})
     }) 
     .catch(error => this.setState({ error }))
   }
@@ -33,7 +34,7 @@ export default class HomePage extends React.Component {
   handleJoinGroup = e => {
     e.preventDefault()
     const joinProjectName = e.target.project.value
-    const projectObject = this.state.allProjects.filter(project => 
+    const projectObject = this.state.joinProjects.filter(project => 
       project.name === joinProjectName
       )
     const project_id = projectObject[0].id
@@ -68,7 +69,15 @@ export default class HomePage extends React.Component {
     .catch(this.context.setError)
   }
 
+  handleJoinProjectSelectChange = e => {
+    const project = e.target.value
+    this.setState({
+      joinProjectSelected: project
+    })
+  }
+
   render() {
+    const {joinProjectSelected} = this.state
     return (
       <div className='home-page'>
         <p className='title'>Home Page</p>
@@ -77,20 +86,22 @@ export default class HomePage extends React.Component {
         <Link to='/project-create' className='project_create'>
           <button className='create_project_button'>Create Project</button>
         </Link>
-        <form onSubmit={this.handleJoinGroup}>
+        <form onSubmit={this.handleJoinGroup} onChange={this.handleJoinProjectSelectChange}>
           <label>
             Join Project
-            <input type='text' name='project' list='projects' />
           </label>
-          <datalist id='projects'>
-            {this.state.allProjects.map(project => {
-              return <option key={project.id} value={`${project.name}`} />
+            <select name='project' list='projects' >
+            <option key='9999' value=''/>
+            {this.state.joinProjects.map(project => {
+              return <option key={project.id} value={`${project.name}`}>{project.name}</option>
             })}
-          </datalist>
+   
+            </select>
           
-          <button type='submit'>
+          {joinProjectSelected && <button type='submit'>
             Join
           </button>
+          }
         </form>
       </div>
     )
