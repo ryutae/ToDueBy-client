@@ -26,7 +26,7 @@ export default class CreateTask extends React.Component {
       body: JSON.stringify({
         project_id: project_id,
         name: new_task_name.value,
-        description: new_task_description.value,
+        // description: new_task_description.value,
         due_date: new_task_due_date.value,
         assigned_to: this.state.assignedTo_id,
       })
