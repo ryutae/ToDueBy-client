@@ -32,3 +32,8 @@
     background-color: #5c5b5b
 }
 
+@media screen and (max-width: 600px) {
+    .side-menu {
+      display: none;
+    }
+}

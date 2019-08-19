@@ -50,12 +50,14 @@ main {
   color: white;
 }
 
-@media screen and (max-width: 600px) {
-  main, .side-menu {
-    flex-direction: column;
-  }
+.page_header {
+  font-size: 2rem;
+  font-weight: 800;
+  padding: 10px 0;
+}
 
-  .side-menu {
-    display: none;
+@media screen and (max-width: 600px) {
+  main {
+    flex-direction: column;
   }
 }

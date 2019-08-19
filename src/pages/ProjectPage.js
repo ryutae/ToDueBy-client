@@ -89,10 +89,9 @@ export default class ProjectPage extends React.Component {
     const uncompletedTasks = this.context.tasks.filter(task => task.completed_by == null)
     return (
       <div>
-          <h1>Project Page</h1>
-          <h2>
+          <p className='page_header'>
             {this.context.project.name}
-          </h2>
+          </p>
           <p>{this.context.project.description}</p>
           <Link to={`/project/${this.props.match.params.project_id}/edit`}>
             <button>
