@@ -52,7 +52,7 @@ export default class MenuContent extends React.Component {
     render() {
         return (
             <section className='menu-content'>
-                <i class="fas fa-clipboard-list"></i>
+                <i className="fas fa-clipboard-list"></i>
                 <h3>ToDueBy</h3>
 
                 <Link to='/dashboard'>

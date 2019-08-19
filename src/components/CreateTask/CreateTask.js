@@ -60,22 +60,22 @@ export default class CreateTask extends React.Component {
     const { assignedTo } = this.state
     return (
       <section className='create-task'>
-        <h2>Create Task</h2>
-        <form className='create_task_form' onSubmit={this.handleCreateTask}>
+        <p className='page_header'>Create Task</p>
+        <form className='task_form' onSubmit={this.handleCreateTask}>
           <label>
             Task Name:
             <input type='text' id='new_task_name' name='new_task_name' placeholder='Name' required/>
           </label>
-          <label>
+          {/* <label>
             Description:
             <input type='text' id='new_task_description' name='new_task_description' placeholder='Description'/>
-          </label>
+          </label> */}
           <label>
             Due Date:
             <input type='date' id='new_task_due_date' name='new_task_due_date' placeholder='Due Date'/>
           </label>
           <label>
-            Assigned To
+            Assigned To:  
             <select id='new_task_assigned_to' name='new_task_assigned_to' value={assignedTo} onChange={this.handleChangeMember}>
                 <option value={null}> 
                 </option>
@@ -89,10 +89,14 @@ export default class CreateTask extends React.Component {
             </select>
           </label>
 
-
-          <button type='submit'>
-            Add Task
-          </button>
+          <div className='buttons_container'>
+            <button type='submit' className='add_button'>
+              Add Task
+            </button>
+            <button onClick={() => this.props.history.goBack()} className='back_button'>
+                Back
+            </button>
+          </div>
         
         </form>
       </section>

@@ -26,28 +26,52 @@ main {
   display: block;
   border: black 1px solid;
   padding: 20px;
-  margin: 
 }
 
 .main-content {
   flex: 4;
   margin: 10px auto;
+  padding: 0 5%;
 }
 
 .title {
   font-size: 2rem;
 }
 
+form {
+  display: flex;
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+  flex-direction: column;
+  width: 80%;
+}
+
+.task_form {
+  width: 100%
+}
+
+input {
+  display: block;
+  margin: 7px auto !important;
+  padding: 5px;
+  width: 90%;
+}
+
+select {
+  margin-left: 5px !important; 
+}
+
 .back_button {
-  border: solid black 1px;
   border-radius: 5px;
   padding: 10px;
-  margin: 7px auto
+  margin: 7px auto;
+  background-color: #008b00;
+  color: white;
 }
 
 .back_button:hover {
-  background-color: orange;
-  color: white;
+  background-color: #01aa01;
 }
 
 .page_header {
@@ -56,8 +80,47 @@ main {
   padding: 10px 0;
 }
 
+.sub_header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.edit_button {
+  padding: 10px;
+  margin: 0 10px; 
+  border-radius: 5px;
+  background-color: #008b00;
+  color: white;
+}
+
+
+.edit_button:hover {
+  background-color: #01aa01;
+}
+
+.add_button {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 10px; 
+  background-color: #008b00;
+  color: white;
+}
+
+.add_button:hover {
+  background-color: #01aa01;
+}
+
+input, select {
+  border: solid 1px #a7a5a5;
+}
+
 @media screen and (max-width: 600px) {
   main {
     flex-direction: column;
+  }
+
+  .main-content {
+    padding: 0 5%;
   }
 }

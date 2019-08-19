@@ -9,7 +9,7 @@ export default class TaskListItem extends React.Component {
         return (
             <Link to={`/project/${task.project_id}/task/${task.id}`}>
                 <div className='TaskListItem'>
-                    {task.name} - {task.description}
+                    {task.name}
                 </div>
             </Link>
         )

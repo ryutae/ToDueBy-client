@@ -194,8 +194,8 @@ export default class TaskPage extends React.Component {
 
         return (
             <section className='task-page'>
-                <h1>Task Page</h1>
-                <form className='task-details' onSubmit={this.handleSave}>
+                <form className='task_form' onSubmit={this.handleSave}>
+                    <p className='sub_header'>Task:</p>
                     <input type='text' name='task_name' id='task_name' value={task_name} placeholder='Task' required onChange={this.handleInputChange}/>
                     <p>Created by: {created_first_name} {created_last_name}</p>
                     <label>
@@ -228,7 +228,7 @@ export default class TaskPage extends React.Component {
                 </form>
                 {formSaved && <p className='saved_message'>Task saved</p>}
                 {completed_by_id && this.renderComplete()}
-                {!completed_by_id && <button onClick={this.handleCompleteTask}>
+                {!completed_by_id && <button className='add_button' onClick={this.handleCompleteTask}>
                     Complete Task
                 </button>}
                 <button onClick={() => this.props.history.goBack()} className='back_button'>

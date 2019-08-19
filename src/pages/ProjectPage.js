@@ -5,6 +5,7 @@ import TokenService from '../services/token-service'
 import TaskList from '../components/TaskList/TaskList'
 import { Link } from 'react-router-dom'
 import MemberList from '../components/MemberList/MemberList';
+import './ProjectPage.css'
 
 export default class ProjectPage extends React.Component {
   constructor(props) {
@@ -92,19 +93,21 @@ export default class ProjectPage extends React.Component {
           <p className='page_header'>
             {this.context.project.name}
           </p>
-          <p>{this.context.project.description}</p>
+          <p className='page_description'>Description: {this.context.project.description}</p>
           <Link to={`/project/${this.props.match.params.project_id}/edit`}>
-            <button>
+            <button className='edit_button'>
               Edit Project
             </button>
           </Link>
+          
           <Link to={`/project/${this.props.match.params.project_id}/create-task`}>
             <button className='add_button'>
               Add Task
             </button>
           </Link>
-          <MemberList />
+          <p className='sub_header'>Open Tasks</p>
           <TaskList tasks={uncompletedTasks} />
+          <MemberList />
           <button onClick={() => this.props.history.goBack()} className='back_button'>
             Back
           </button>

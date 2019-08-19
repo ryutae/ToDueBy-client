@@ -91,7 +91,12 @@ export default class UpdateProject extends React.Component {
                         Description
                         <input id='description' name='description' placeholder='Description' value={description} required onChange={e => this.handleChangeDescription(e.target.value)}/>
                     </label>
-                    <button>Update</button>
+                    <div className='buttons_container'>
+                        <button type='submit' className='edit_button'>Update</button>
+                        <button onClick={() => this.props.history.goBack()} className='back_button'>
+                            Back
+                        </button>
+                    </div>
                 </form>
             </div>
         )
