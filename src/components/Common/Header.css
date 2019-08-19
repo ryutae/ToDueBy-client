@@ -1,14 +1,37 @@
 header {
-    background-color: grey;
+    background-color: #171d29;
     padding-top: 10px;
     padding-bottom: 10px;
+    color: #ffffff;
+}
+
+header > a {
+    color: #ffffff !important;
+}
+
+.header_link > a:link {
+    color: #ffffff !important;
+}
+
+.header_link > a:visited {
+    color: #ffffff !important;
 }
 
 .navbar {
     display: flex;
-
+    justify-content: flex-end;
 }
 
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+header li {
+margin: 0 5px;
+
+}
 
 @media screen and (max-width: 600px) {
 

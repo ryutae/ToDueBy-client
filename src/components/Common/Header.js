@@ -40,7 +40,7 @@ export default class Header extends React.Component {
       
     renderLogoutLinkAndMenuButton() {
         return (
-        <li>
+        <li className='header_link'>
             <Link
             onClick={this.handleLogoutClick}
             to='/'>
@@ -53,7 +53,7 @@ export default class Header extends React.Component {
                 height={15}
                 strokeWidth={1}
                 rotate={0}
-                color='black'
+                color='white'
                 borderRadius={0}
                 animationDuration={0.5}
                 />
@@ -69,8 +69,8 @@ export default class Header extends React.Component {
     renderLoginLink() {
         return (
         <>
-            <li><Link to='/login'>Login</Link></li>
-            <li><Link to='/register'>Register</Link></li>
+            <li className='header_link'><Link to='/login'>Login</Link></li>
+            <li className='header_link'><Link to='/register'>Register</Link></li>
         </>
         )
     }
@@ -84,7 +84,7 @@ export default class Header extends React.Component {
                 <div className='navbar'>
                     <nav className='navbar'>
                         <ul>
-                            <li><Link to='/dashboard'>Home</Link></li>
+                            <li className='header_link'><Link to='/dashboard'>Home</Link></li>
                             {TokenService.hasAuthToken()
                             ? this.renderLogoutLinkAndMenuButton()
                             : this.renderLoginLink()}

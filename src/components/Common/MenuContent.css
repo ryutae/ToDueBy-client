@@ -1,0 +1,32 @@
+.menu-content {
+    border-top: solid #5c5b5b .5px;
+    border-bottom: solid #5c5b5b .5px;
+    background-color: #171d29;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: #ffffff;
+    padding-top: 10px;
+    height: 100%;
+}
+
+.menu_item {
+    padding: 4px;
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.menu_section {
+    border-top: .5px solid #5c5b5b;
+}
+
+.menu_section_header {
+    margin-top: 10px;
+    color: #5c5b5b;
+}
+
+
+.menu_item:hover {
+    background-color: #918f8f
+}

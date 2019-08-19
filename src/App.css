@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   box-sizing: border-box;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -36,6 +36,7 @@ main {
 
 .title {
   font-size: 2rem;
+  padding: 5px;
 }
 
 form {

@@ -155,7 +155,7 @@ export default class RegisterForm extends React.Component {
           <input type='password' name='password' id='password' onFocus={this.refreshError} placeholder='Password'></input>
           {this.state.errorPassword && <p className="form-error">{this.state.errorPassword}</p>}
           <input type='password' name='confirmPassword' id='confirmPassword' onFocus={this.refreshError} placeholder='Confirm Password'></input>
-          <button type='submit'>Register</button>
+          <button className='add_button' type='submit'>Register</button>
       </form>
     )
   }

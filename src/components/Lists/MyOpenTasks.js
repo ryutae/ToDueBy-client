@@ -35,9 +35,9 @@ export default class MyOpenTasks extends React.Component {
         const myOpenTasks = this.state.myOpenTasks
         return (
             <div className='tasklist'>
-                <h2>
+                <p className='page_header'>
                     My Open Tasks
-                </h2>
+                </p>
                 <TaskList tasks={myOpenTasks} />
                 <button onClick={() => this.props.history.goBack()} className='back_button'>
                     Back

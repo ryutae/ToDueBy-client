@@ -1,5 +1,14 @@
 footer {
-    background-color: grey;
+    background-color: #171d29;
+    color: #ffffff;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+footer > a:link {
+    color: white
+}
+
+footer > a:visited {
+    color: white
 }

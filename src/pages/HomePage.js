@@ -84,7 +84,7 @@ export default class HomePage extends React.Component {
         <h3>Projects</h3>
         <ProjectList/>
         <Link to='/project-create' className='project_create'>
-          <button className='create_project_button'>Create Project</button>
+          <button className='add_button'>Create Project</button>
         </Link>
         <form onSubmit={this.handleJoinGroup} onChange={this.handleJoinProjectSelectChange}>
           <label>

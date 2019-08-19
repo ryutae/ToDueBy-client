@@ -24,6 +24,7 @@ class App extends Component {
             <PrivateOnlyRoute path='/lists' component={PrivateRoutes}/>
             <PublicOnlyRoute path='/login' component={PublicRoutes}/>
             <PublicOnlyRoute path='/register' component={PublicRoutes}/>
+            <PublicOnlyRoute exact path='/' component={PublicRoutes}/>
           </Switch>
         <Footer/> 
       </div>

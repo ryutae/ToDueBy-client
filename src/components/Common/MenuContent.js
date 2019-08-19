@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ProjectListContext from '../../contexts/ProjectListContext'
 import config from '../../config';
 import TokenService from '../../services/token-service';
+import './MenuContent.css'
 
 export default class MenuContent extends React.Component {
     static contextType = ProjectListContext
@@ -53,8 +54,7 @@ export default class MenuContent extends React.Component {
         return (
             <section className='menu-content'>
                 <i className="fas fa-clipboard-list"></i>
-                <h3>ToDueBy</h3>
-
+                <p className='menu_section_header'>ToDueBy</p>
                 <Link to='/dashboard'>
                     <div className='menu_item'>Home</div>
                 </Link>
@@ -67,7 +67,7 @@ export default class MenuContent extends React.Component {
                         <div className='menu_item'>Tasks I've Created</div>
                     </Link>
                     <Link to='/lists/mycompletedtasks'>
-                        <div className='menu_item'>Tasks I've completed</div>
+                        <div className='menu_item'>Tasks I've Completed</div>
                     </Link>
                 </div>    
                 <div className='menu_section'>
