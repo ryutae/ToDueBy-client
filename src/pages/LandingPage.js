@@ -1,6 +1,5 @@
 import React from 'react'
 import './LandingPage.css'
-import landing_splash from '../Assets/landing_splash.jpg'
 import { Link } from 'react-router-dom'
 
 export default class LandingPage extends React.Component {

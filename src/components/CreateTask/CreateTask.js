@@ -15,7 +15,7 @@ export default class CreateTask extends React.Component {
 
   handleCreateTask = e => {
     e.preventDefault()
-    const { new_task_name, new_task_description, new_task_due_date, new_task_assigned_to } = e.target
+    const { new_task_name, new_task_due_date} = e.target
     const { project_id } = this.props.match.params
     fetch(`${config.API_ENDPOINT}/tasks`, {
       method: 'POST',

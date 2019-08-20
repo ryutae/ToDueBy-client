@@ -161,7 +161,6 @@ export default class TaskPage extends React.Component {
 
     renderComplete() {
         const { date_completed,
-            completed_by_id,
             completed_by_first_name,
             completed_by_last_name } = this.state
         return (
@@ -172,22 +171,12 @@ export default class TaskPage extends React.Component {
     }
    
     render() {
-        const { task,
+        const { 
             task_name,
-            task_description,
-            task_id,
             task_due_date,
-            project_id,
-            created_by_id,
             created_first_name,
             created_last_name,
-            assigned_to_id, 
-            assigned_to_first_name,
-            assigned_to_last_name,
-            date_completed,
             completed_by_id,
-            completed_by_first_name,
-            completed_by_last_name,
             formUpdated,
             assignedTo,
             formSaved  } = this.state
