@@ -1,5 +1,5 @@
 # ToDueBy Client
-[Live App](https://ryutae-challenge-tracker-app.now.sh)
+[Live App](https://ryutae-todueby.now.sh)
 
 ## Summary
 
