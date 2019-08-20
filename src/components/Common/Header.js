@@ -46,7 +46,8 @@ export default class Header extends React.Component {
             to='/'>
             Logout
             </Link>
-            <HamburgerMenu
+            <div className='menu_button'>
+                <HamburgerMenu 
                 isOpen={this.state.menuOpen}
                 menuClicked={this.handleClick.bind(this)}
                 width={18}
@@ -57,6 +58,7 @@ export default class Header extends React.Component {
                 borderRadius={0}
                 animationDuration={0.5}
                 />
+            </div>
                 <CheeseburgerMenu
                     isOpen={this.state.menuOpen}
                     closeCallback={this.closeMenu.bind(this)}>

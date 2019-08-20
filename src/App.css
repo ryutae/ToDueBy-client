@@ -28,6 +28,10 @@ main {
   padding: 20px;
 }
 
+.main-container {
+  height: 89vh;
+}
+
 .main-content {
   flex: 4;
   margin: 10px auto;
