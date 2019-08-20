@@ -49,7 +49,7 @@ export default class CreateProjectForm extends React.Component{
                     Description
                     <input type='text' name='project_description' id='project_description' placeholder='Description' required></input>
                 </label>
-                <button type='submit' className='submit_button'>Submit</button>
+                <button type='submit' className='add_button'>Create Project</button>
             </form>
         )
     }
