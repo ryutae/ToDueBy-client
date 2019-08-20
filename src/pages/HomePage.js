@@ -98,8 +98,8 @@ export default class HomePage extends React.Component {
    
             </select>
           
-          {joinProjectSelected && <button type='submit'>
-            Join
+          {joinProjectSelected && <button className='add_button' type='submit'>
+            Join Project
           </button>
           }
         </form>

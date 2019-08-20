@@ -7,7 +7,7 @@ import LoginPage from '../pages/LoginPage';
 export default class PublicRoutes extends React.Component {
     render() {
         return (
-            <div>
+            <div className='main_container_public'>
                 <Switch>
                     <Route exact path='/' component={LandingPage}/>
                     <Route path='/login' component={LoginPage}/>
