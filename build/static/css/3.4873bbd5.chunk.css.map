@@ -1,1 +1,0 @@
-{"version":3,"sources":["PrivateRoutes.css"],"names":[],"mappings":"AAAA,gBACI,YAAa,CACb,0BACJ,CAEA,WACI,cACJ,CACA,cACI,WACJ","file":"3.4873bbd5.chunk.css","sourcesContent":[".main-container {\n    display: flex;\n    justify-content: flex-start;\n}\n\n.side-menu {\n    flex-basis: 20%; \n}\n.main-content {\n    margin: auto;\n}"]}
