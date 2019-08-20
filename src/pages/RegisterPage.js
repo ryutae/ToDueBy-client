@@ -6,7 +6,7 @@ export default class RegisterPage extends React.Component {
   render() {
     return (
       <section className='RegisterPage'>
-        <h1>Register Page</h1>
+        <p className='page_header'>Register</p>
         <RegisterForm />
       </section>
 
