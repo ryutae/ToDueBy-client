@@ -18,7 +18,6 @@ export default class TaskAssign extends React.Component {
         const memberObject = this.context.members.filter(member =>
             assignedTo === (`${member.first_name} ${member.last_name}`)    
         )
-        console.log(memberObject)
         const member_id = memberObject[0].id 
         fetch(`${config.API_ENDPOINT}/tasks/${this.props.match.params.task_id}/assign`, {
             method: 'PATCH',

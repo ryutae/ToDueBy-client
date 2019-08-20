@@ -24,7 +24,6 @@ export default class MyOpenTasks extends React.Component {
               : res.json()
         )
         .then(resJson => {
-            console.log(resJson)
             this.setState({
                 myOpenTasks: resJson
             })

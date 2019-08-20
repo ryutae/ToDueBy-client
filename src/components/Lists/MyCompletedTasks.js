@@ -24,7 +24,6 @@ export default class MyCompletedTasks extends React.Component {
               : res.json()
         )
         .then(resJson => {
-            console.log(resJson)
             this.setState({
                 myCompletedTasks: resJson
             })
