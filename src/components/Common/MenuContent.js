@@ -1,47 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ProjectListContext from '../../contexts/ProjectListContext'
-import config from '../../config';
-import TokenService from '../../services/token-service';
 import './MenuContent.css'
 
 export default class MenuContent extends React.Component {
     static contextType = ProjectListContext
-    constructor(props) {
-        super(props)
-        this.state = {
-            projectList: [],
-            error: null
-        }
-    }
-
-    componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/projects/`, {
-            method: 'GET',
-            headers: {
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            }
-        })
-        .then(res =>
-            (!res.ok)
-              ? res.json().then(e => Promise.reject(e))
-              : res.json()
-        )
-        .then(resJson => {
-            console.log(resJson)
-            this.setState({
-                projectList: resJson
-            })
-        })  
-    }
 
     renderProjectList() {
-        const { projectList } = this.state
+        const { projectList } = this.context
         return (
             projectList.map(project => {
                 return (
-                    <Link to={`/project/${project.project_id}`}>
-                        <div className='menu_item'>
+                    <Link to={`/project/${project.project_id}`} key={project.project_id}>
+                        <div className='menu_item' key={project.project_id}>
                             {project.name}
                         </div>
                     </Link>
