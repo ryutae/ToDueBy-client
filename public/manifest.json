@@ -1,6 +1,6 @@
 {
-  "name": "ToDueBy",
   "short_name": "ToDueBy",
+  "name": "ToDueBy",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,7 +9,7 @@
     }
   ],
   "start_url": ".",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
