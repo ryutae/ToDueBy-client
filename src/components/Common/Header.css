@@ -3,7 +3,23 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     color: #ffffff;
-    height: 8vh; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.title_wrapper {
+    flex-basis: 16.66667%;
+    max-width: 16.66667%
+}
+
+.header_title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 550;
 }
 
 header > a {
@@ -21,6 +37,13 @@ header > a {
 .navbar {
     display: flex;
     justify-content: flex-end;
+    flex-basis: 83.33333%;
+    max-width: 83.33333%;
+    padding-top: 15px;
+}
+
+.navbar_links {
+    display: inherit;
 }
 
 header ul {

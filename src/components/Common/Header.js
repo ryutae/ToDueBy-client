@@ -38,31 +38,35 @@ export default class Header extends React.Component {
       
     renderLogoutLinkAndMenuButton() {
         return (
-        <li className='header_link'>
-            <Link
-            onClick={this.handleLogoutClick}
-            to='/'>
-            Logout
-            </Link>
-            <div className='menu_button'>
-                <HamburgerMenu 
-                isOpen={this.state.menuOpen}
-                menuClicked={this.handleClick.bind(this)}
-                width={18}
-                height={15}
-                strokeWidth={1}
-                rotate={0}
-                color='white'
-                borderRadius={0}
-                animationDuration={0.5}
-                />
-            </div>
-                <CheeseburgerMenu
+            <div className='navbar_links'>
+                <li className='header_link'><Link to='/dashboard'>Home</Link></li>
+                <li className='header_link'>
+                <Link
+                onClick={this.handleLogoutClick}
+                to='/'>
+                Logout
+                </Link>
+                <div className='menu_button'>
+                    <HamburgerMenu 
                     isOpen={this.state.menuOpen}
-                    closeCallback={this.closeMenu.bind(this)}>
-                    <MenuContent closeCallback={this.closeMenu.bind(this)}/>
-                </CheeseburgerMenu>
-        </li>
+                    menuClicked={this.handleClick.bind(this)}
+                    width={18}
+                    height={15}
+                    strokeWidth={1}
+                    rotate={0}
+                    color='white'
+                    borderRadius={0}
+                    animationDuration={0.5}
+                    />
+                </div>
+                    <CheeseburgerMenu
+                        isOpen={this.state.menuOpen}
+                        closeCallback={this.closeMenu.bind(this)}>
+                        <MenuContent closeCallback={this.closeMenu.bind(this)}/>
+                    </CheeseburgerMenu>
+            </li>
+        </div>
+        
         )
     }
       
@@ -78,20 +82,18 @@ export default class Header extends React.Component {
     render() {
         return (
             <header>
-                <Link to='/dashboard'>
-                    <p className='title'>ToDueBy</p>
-                </Link>
-                <div className='navbar'>
-                    <nav className='navbar'>
-                        <ul>
-                            <li className='header_link'><Link to='/dashboard'>Home</Link></li>
-                            {TokenService.hasAuthToken()
-                            ? this.renderLogoutLinkAndMenuButton()
-                            : this.renderLoginLink()}
-                        </ul>
-                    </nav>
+                <div className='title_wrapper'>
+                    <Link to='/dashboard'>
+                        <p className='header_title'>ToDueBy</p>
+                    </Link>
                 </div>
-
+                <nav className='navbar'>
+                    <ul>
+                        {TokenService.hasAuthToken()
+                        ? this.renderLogoutLinkAndMenuButton()
+                        : this.renderLoginLink()}
+                    </ul>
+                </nav>
             </header>
         )
     }
