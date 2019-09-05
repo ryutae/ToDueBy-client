@@ -1,13 +1,26 @@
 .landing_page {
     background-image: url('../Assets/landing_splash.jpg');
-    background-color: rgb(175, 172, 172, 0.2) !important;
+    background-color: rgb(175, 172, 172, 0.35) !important;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; 
-    height: 89vh;
+    background-attachment: fixed;
+    position: relative;
+    height: 100vh;
     background-blend-mode: color;
+    display: flex;
 }
 
 .langing_page_links {
     color: #008a35;
+}
+
+.landing_page_text {
+    margin: auto;
+    color: white;
+}
+
+.landing_page_title {
+    font-size: 4rem;
+    font-weight: 800;
 }
